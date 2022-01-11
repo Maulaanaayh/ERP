@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateIndonesiaCitiesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('indonesia_cities', function (Blueprint $table) {
+            $table->char('id', 4);
+            $table->integer('user_id')->default()->nullable();
+            $table->char('province_id', 2);
+            $table->string('name');
+            $table->integer('target');
+            $table->text('meta');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('indonesian_cities');
+    }
+}
